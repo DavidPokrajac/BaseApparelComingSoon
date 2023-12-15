@@ -3,30 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Base Apparel coming soon page</title>
-
+  <link rel="stylesheet" href="./style.css" type="text/css">
 </head>
 <body>
 
   <main>
-    <article>
-      <img src="./images/logo.svg" alt="">
-      <h1>We're coming soon</h1>
-      <p class="lead">
-        Hello fellow shoppers! We're currently building our new fashion store. 
-        Add your email below to stay up-to-date with announcements and our launch deals.
-      </p>
-      <label for="email-address">
-        <input type="email" name="email" id="email-address" placeholder="Email Address">
-        <img src="./images/icon-arrow.svg" alt="">
-      </label>
+    <article class="article">
+      <img class="article__logo-image" src="./images/logo.svg" alt="">
       <picture>
         <source media="(min-width: 375px)" srcset="./images/hero-desktop.jpg" />
         <img src="./images/hero-mobile.jpg" alt="" />
       </picture>
+      <h1 class="article__heading"><mark>We're</mark> coming soon</h1>
+      <p class="article__lead">
+        Hello fellow shoppers! We're currently building our new fashion store. 
+        Add your email below to stay up-to-date with announcements and our launch deals.
+      </p>
+      <label class="article__email-field" for="email-address">
+        <input type="email" name="email" id="email-address" placeholder="Email Address">
+        <img src="./images/icon-arrow.svg" alt="">
+      </label>
     </article>
   </main>
   
