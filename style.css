@@ -4,16 +4,17 @@
 
     --color-neutral-400: hsl(0, 6%, 24%);
 
-    --color-gradient-primary: hsl(0, 0%, 100%);
-    --color-gradient-primary: hsl(0, 100%, 98%);
+    --color-gradient-primary-from: hsl(0, 0%, 100%);
+    --color-gradient-primary-to: hsl(0, 100%, 98%);
 
-    --color-gradient-secondary: hsl(0, 80%, 86%);
-    --color-gradient-secondary: hsl(0, 74%, 74%);
+    --color-gradient-secondary-from: hsl(0, 80%, 86%);
+    --color-gradient-secondary-to: hsl(0, 74%, 74%);
 
     --gradient-angle: 135deg;
 
     --font-family-base: 'Josefin Sans', sans-serif;
     --font-weight-light: 300;
+    --font-weight-normal: 400;
     --font-weight-bold: 600;
 }
 
@@ -27,6 +28,14 @@ body {
     margin: 0;
     line-height: 1.5;
     font-family: var(--font-family-base);
+    color: var(--color-primary-400);
+    text-align: center;
+    font-weight: var(--font-weight-normal);
+    background: linear-gradient(
+        var(--gradient-angle),
+        var(--color-gradient-primary-from),
+        var(--color-gradient-primary-to)
+    );
 }
 
 img {
@@ -53,4 +62,76 @@ select {
 
 mark {
     background: inherit;
+    color: var(--color-primary-400);
+    font-weight: var(--font-weight-light);
 }
+
+.article__logo {
+    padding: 1.5em 1em;
+}
+
+.article__logo img {
+    transform: scale(0.65) translateX(-32px);
+}
+
+.article__info {
+    padding: 0 2em;
+}
+
+.article__info__heading {
+    text-transform: uppercase;
+    color: var(--color-neutral-400);
+    font-size: 2.25rem;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.2em;
+    line-height: 1;
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+}
+
+.article__info__lead {
+    font-size: 0.9rem;
+    margin-bottom: 2em;
+}
+
+.article__info__email-field {
+    position: relative;
+    display: block;
+    line-height: 1.6;
+    font-weight: var(--font-weight-normal);
+}
+
+.article__info__email-field input {
+    color: inherit;
+    border: 1px solid var(--color-primary-400);
+    border-radius: 2em;
+    padding: 0.8em 2em;
+    display: inline-block;
+    width: 100%;
+    background: inherit;
+}
+
+span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(
+        135deg,
+        var(--color-gradient-secondary-from),
+        var(--color-gradient-secondary-to)
+    );
+    border-radius: 2em;
+    display: inline-block;
+    padding: 1em 1.75em;
+}
+
+/* .article__info__email-field span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(
+        135deg,
+        var(--color-gradient-secondary-from),
+        var(--color-gradient-secondary-to)
+    );
+} */
