@@ -184,6 +184,12 @@ mark {
     display: inline-block;
     width: 100%;
     background: inherit;
+    color: var(--color-neutral-400);
+}
+
+.article__info__email-field input::placeholder {
+    color: var(--color-primary-400);
+    opacity: 0.5;
 }
 
 span {
@@ -198,11 +204,11 @@ span {
     border-radius: 2em;
     display: inline-block;
     padding: 1em 1.75em;
+    height: 100%;
 }
 
 span:hover {
     cursor: pointer;
-    opacity: 0.5;
     box-shadow: 0 10px 20px var(--color-neutral-400);
 }
 
@@ -215,4 +221,23 @@ span:hover {
         height: 100%;
         object-fit: cover;
     }
+}
+
+.wrong-email {
+    border: 2px solid var(--color-primary-500) !important;
+}
+
+.error-icon::before {
+    content: url('./images/icon-error.svg');
+    position: absolute;
+    left: -50%;
+}
+
+.error-message::before {
+    content: 'Please provide a valid email';
+    position: absolute;
+    bottom: -2em;
+    left: 2em;
+    color: var(--color-primary-500) !important;
+    font-size: 0.95rem;
 }
