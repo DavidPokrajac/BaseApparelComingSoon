@@ -200,6 +200,12 @@ span {
     padding: 1em 1.75em;
 }
 
+span:hover {
+    cursor: pointer;
+    opacity: 0.5;
+    box-shadow: 0 10px 20px var(--color-neutral-400);
+}
+
 @media (min-width: 1234px) {
     span {
         padding: 1em 2.5em;
