@@ -215,7 +215,7 @@ mark {
     opacity: 0.5;
 }
 
-.article__info__email-form button {
+.article__info__email-form span {
     position: absolute;
     top: 0;
     right: 0;
@@ -230,7 +230,7 @@ mark {
     height: 100%;
 }
 
-.article__info__email-form button:hover {
+.article__info__email-form span:hover {
     cursor: pointer;
     background: linear-gradient(
         135deg,
@@ -241,7 +241,7 @@ mark {
 }
 
 @media (min-width: 1234px) {
-    .article__info__email-form button {
+    .article__info__email-form span {
         padding: 1em 2.5em;
     }
 }
