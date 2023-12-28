@@ -46,12 +46,6 @@ main {
     background-position: top left;
 }
 
-/* @media (min-width: 1234px) {
-    main {
-        max-width: 1500px;
-    }
-} */
-
 img {
     display: block;
     max-width: 100%;
@@ -72,6 +66,7 @@ button,
 textarea,
 select {
     font: inherit;
+    border: 0;
 }
 
 mark {
@@ -101,6 +96,10 @@ mark {
     padding: 1.5em 2em;
 }
 
+.article__logo img {
+    transform: scale(0.65) translateX(-32px);
+}
+
 @media (min-width: 1234px) {
     .article__logo {
         grid-area: 1 / 1 / 2 / 2;
@@ -108,6 +107,18 @@ mark {
         width: 60%;
         margin: 0 auto;
         max-width: 450px;
+    }
+
+    .article__logo img {
+        transform: unset;
+    }
+}
+
+@media (min-width: 676px) {
+    picture img {
+        margin: 0 auto;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -117,18 +128,15 @@ mark {
     }
 }
 
-.article__logo img {
-    transform: scale(0.65) translateX(-32px);
-}
-
-@media (min-width: 1234px) {
-    .article__logo img {
-        transform: unset;
-    }
-}
-
 .article__info {
     padding: 0 2em;
+}
+
+@media (min-width: 676px) {
+    .article__info {
+        width: 75%;
+        margin: 0 auto;
+    }
 }
 
 @media (min-width: 1234px) {
@@ -169,14 +177,22 @@ mark {
     }
 }
 
-.article__info__email-field {
+.article__info__email-form {
     position: relative;
     display: block;
     line-height: 1.6;
     font-weight: var(--font-weight-normal);
+    isolation: isolate;
 }
 
-.article__info__email-field input {
+@media (min-width: 676px) and (max-width: 1234px) {
+    .article__info__email-form {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+.article__info__email-form input {
     color: inherit;
     border: 1px solid var(--color-primary-400);
     border-radius: 2em;
@@ -185,14 +201,21 @@ mark {
     width: 100%;
     background: inherit;
     color: var(--color-neutral-400);
+    position: relative;
+    z-index: -2;
 }
 
-.article__info__email-field input::placeholder {
+.article__info__email-form input:focus-visible {
+    outline: 2px solid var(--color-primary-400);
+    outline-offset: 0.175em;
+}
+
+.article__info__email-form input::placeholder {
     color: var(--color-primary-400);
     opacity: 0.5;
 }
 
-span {
+.article__info__email-form button {
     position: absolute;
     top: 0;
     right: 0;
@@ -207,30 +230,44 @@ span {
     height: 100%;
 }
 
-span:hover {
+.article__info__email-form button:hover {
     cursor: pointer;
-    box-shadow: 0 10px 20px var(--color-neutral-400);
+    background: linear-gradient(
+        135deg,
+        var(--color-gradient-primary-to),
+        var(--color-gradient-secondary-from)
+    );
+    box-shadow: 0 10px 20px var(--color-gradient-secondary-from);
 }
 
 @media (min-width: 1234px) {
-    span {
+    .article__info__email-form button {
         padding: 1em 2.5em;
-    }
-
-    picture img {
-        height: 100%;
-        object-fit: cover;
     }
 }
 
 .wrong-email {
-    border: 2px solid var(--color-primary-500) !important;
+    border: 3px solid var(--color-primary-500) !important;
 }
 
 .error-icon::before {
-    content: url('./images/icon-error.svg');
+    content: '';
     position: absolute;
-    left: -50%;
+    left: -75%;
+    top: 3px;
+    background-color: var(--color-gradient-primary-from);
+    background-image: url('./images/icon-error.svg');
+    background-repeat: no-repeat;
+    background-position: 0.85em center;
+    width: 4rem;
+    height: calc(100% - 6px);
+    z-index: -1;
+}
+
+@media (min-width: 1234px) {
+    .error-icon::before {
+        left: -55%;
+    }
 }
 
 .error-message::before {
@@ -240,4 +277,15 @@ span:hover {
     left: 2em;
     color: var(--color-primary-500) !important;
     font-size: 0.95rem;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }

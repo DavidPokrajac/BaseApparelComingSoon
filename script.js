@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
     const emailField = document.getElementById('email-address')
+    emailField.value = ''
 
     const emailPattern = new RegExp(
         /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
@@ -17,6 +18,7 @@ window.addEventListener('load', () => {
         } else {
             event.target.classList.remove('wrong-email')
             event.target.nextElementSibling.classList.remove('error-icon')
+            event.target.parentElement.classList.remove('error-message')
         }
     })
 })
